@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 
 namespace MCT_NoCameraCrash
 {
@@ -9,6 +10,10 @@ namespace MCT_NoCameraCrash
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                // Initialize the .NET MAUI Community Toolkit by adding the below line of code
+                .UseMauiCommunityToolkit()
+                // Initialize the .NET MAUI Community Toolkit CameraView by adding the below line of code
+                .UseMauiCommunityToolkitCamera()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -16,7 +21,7 @@ namespace MCT_NoCameraCrash
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

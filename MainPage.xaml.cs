@@ -1,24 +1,49 @@
-﻿namespace MCT_NoCameraCrash
+﻿using CommunityToolkit.Maui.Core;
+using System.Diagnostics;
+
+namespace MCT_NoCameraCrash;
+
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
+    static int cameraCheckCount = 0;
+
+    public MainPage()
     {
-        int count = 0;
+        InitializeComponent();
+    }
 
-        public MainPage()
+    private async void CameraCheckButton_Clicked(object sender, EventArgs e)
+    {
+        await HasAvailableCameras();
+        CameraCheckButton.Text = $"Camera check count: {cameraCheckCount}";
+    }
+
+    public static async Task<bool> HasAvailableCameras()
+    {
+        try
         {
-            InitializeComponent();
+            ICameraProvider? cameraProvider = IPlatformApplication.Current?.Services?.GetRequiredService<ICameraProvider>();
+            if (cameraProvider is null)
+            {
+                return false;
+            }
+
+            await cameraProvider.RefreshAvailableCameras(CancellationToken.None);
+            if (cameraProvider.AvailableCameras is null)
+            {
+                return false;
+            }
+
+            cameraCheckCount = cameraProvider.AvailableCameras.Count;
+
+            return cameraProvider.AvailableCameras.Count > 0;
         }
-
-        private void OnCounterClicked(object? sender, EventArgs e)
+        catch (Exception ex)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            Trace.WriteLine(ex.Message, nameof(MainPage));
+            return false;
         }
     }
 }
+
+
