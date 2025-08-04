@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36327.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCT_NoCameraCrash", "MCT_NoCameraCrash.csproj", "{E26F316E-1333-41A3-8FF5-4A37BBC5FE6A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E26F316E-1333-41A3-8FF5-4A37BBC5FE6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E26F316E-1333-41A3-8FF5-4A37BBC5FE6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E26F316E-1333-41A3-8FF5-4A37BBC5FE6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E26F316E-1333-41A3-8FF5-4A37BBC5FE6A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7100FC17-A848-462F-8C15-999EAA92BB48}
+	EndGlobalSection
+EndGlobal
